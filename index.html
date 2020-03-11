@@ -12,8 +12,8 @@
     {{ count }}
     <br/>
     <input type="text" v-model="newItem"><button @click="addItem">Add</button><br/>
+    <input type="text" v-model="deletableItem"><button @click="delItem(deletableItem)">Delete</button><br/>
     <ul>
-        <input type="text" v-model="deletableItem"><button @click="delItem(deletableItem)">Delete</button><br/>
         <li v-for="item in items">{{ item }}</li>
     </ul>
 </div>
@@ -24,7 +24,10 @@
         data: {
             message: 'Hello Vue!',
             count: 0,
-            items: ['milk', 'apple', 'chips'],
+            items: [
+                { name: 'milk', isDone: false, id: 0 },
+                { name: 'apple', isDone: false, id: 0 },
+                { name: 'chips', isDone: false, id: 0 },],
             newItem: '',
         },
         methods: {
